@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show]
+  before_action :is_signed_in?, only: [:new]
 
   # GET /events
   # GET /events.json
@@ -37,6 +38,9 @@ class EventsController < ApplicationController
     end
   end
 
+  def is_signed_in?
+    session[:user_id] && session[:user_name]
+  end
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
