@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :events
   get 'session/new'
   delete 'session/destroy'
   post 'session/log_in'
