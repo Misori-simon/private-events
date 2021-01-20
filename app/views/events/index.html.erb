@@ -1,9 +1,8 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Events</h1>
+<h1 class="page_title">Events</h1>
 
 <table>
-  <span>Past Events</span>
+  <span class="heading">Past Events</span>
   <thead>
     <tr>
       <th>Description</th>
@@ -17,16 +16,16 @@
     <% @events.past_events.each do |event| %>
       <tr>
         <td><%= event.description %></td>
-        <td><%= event.date %></td>
-        <td><%= event.creator_id %></td>
-        <td><%= link_to 'Show', event %></td>
+        <td class="text_red"><%= event.date %></td>
+        <td class="capitalise italic"><%= User.find(event.creator_id).name %></td>
+        <td><%= link_to 'Show', event, class: "links" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <table>
-  <span>Upcoming Events</span>
+  <span class="heading">Upcoming Events</span>
   <thead>
     <tr>
       <th>Description</th>
@@ -40,9 +39,9 @@
     <% @events.upcoming_events.each do |event| %>
       <tr>
         <td><%= event.description %></td>
-        <td><%= event.date %></td>
-        <td><%= event.creator_id %></td>
-        <td><%= link_to 'Show', event %></td>
+        <td class="text_green"><%= event.date %></td>
+        <td class="capitalise italic"><%= User.find(event.creator_id).name %></td>
+        <td><%= link_to 'Show', event , class: "links"%></td>
       </tr>
     <% end %>
   </tbody>
@@ -50,4 +49,4 @@
 
 <br>
 
-<%= link_to 'New Event', new_event_path %>
+<%= link_to 'New Event', new_event_path, class: "links"%>

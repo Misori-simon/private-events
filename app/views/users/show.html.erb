@@ -1,12 +1,11 @@
-<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Name:</strong>
-  <%= @user.name %>
+  <span class="page_title"><%= @user.name%></span>
 </p>
 
 <p>
-  <strong>Events Created:</strong>
+  <strong class="heading">Events Created:</strong>
   <% @user.events.each do |event| %>
     <p><%= event.description %></p>
   <% end %>
@@ -23,14 +22,14 @@
 <%
 =end%>
 
-<p>
+<p class="heading">
   <strong>Previously attended Events:</strong>
   <% @user.attended_events.past_events.each do |event| %>
     <p><%= event.description %> <%= event.date %></p>
   <% end %>
 </p>
 
-<p>
+<p class="heading">
   <strong>Upcoming Events to attend:</strong>
   <% @user.attended_events.upcoming_events.each do |event| %>
     <p><%= event.description %> <%= event.date %></p>

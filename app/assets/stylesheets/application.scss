@@ -1,0 +1,135 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ .nav {
+   display: flex;
+   justify-content: space-between;
+   background-color:  #5b92e4;
+   padding: 10px 5px;
+ }
+
+.nav_right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.nav_item {
+  padding: 5px;
+  border-radius: 3px;
+  color:#fff !important;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.page_title {
+  font-size: 20px;
+  font-weight: lighter;
+  color: #5b92e4;
+}
+
+.form {
+  border: 1px solid #5b92e4;
+  display: inline-block;
+  padding: 10px;
+  border-radius: 3px;
+  background-color: #eee;
+
+  label {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="date"],
+  select,
+  textarea
+   {
+    padding: 3px;
+    font-size: 18px;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+    border: 2px solid #5b92e4;
+    background-color: #fff;
+  }
+
+  select,
+  textarea
+   {
+    padding: 3px;
+    font-size: 16px;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+    border: 1px solid #5b92e4;
+    background-color: #fff;
+
+  }
+
+  textarea
+   {
+    width: 90%;
+    height: 100px;
+    padding: 10px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+  }
+
+
+  input[type="submit"]{
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 10px;
+    color: #fff;
+    background-color: #5b92e4 ;
+    outline: none;
+    border: none;
+    padding: 5px;
+    border-radius: 3px;
+  }
+}
+
+.links{
+  @extend .nav_item;
+  background-color: #3583f8;
+}
+
+.heading {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #3583f8
+}
+
+.text_green {
+  color: rgb(42, 133, 61);
+}
+
+.text_red {
+  color: rgb(122, 41, 21);
+}
+
+.capitalise {
+  text-transform: capitalize;
+}
+
+.italic {
+  font-style: italic;
+}
