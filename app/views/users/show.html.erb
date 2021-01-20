@@ -12,9 +12,27 @@
   <% end %>
 </p>
 
-<p>
-  <strong>Events Attended:</strong>
+<%
+=begin%>
+ <p>
+  <strong>All Events Attended:</strong>
   <% @user.attended_events.each do |event| %>
     <p><%= event.description %></p>
+  <% end %>
+</p>
+<%
+=end%>
+
+<p>
+  <strong>Previously attended Events:</strong>
+  <% @user.attended_events.past_events.each do |event| %>
+    <p><%= event.description %> <%= event.date %></p>
+  <% end %>
+</p>
+
+<p>
+  <strong>Upcoming Events to attend:</strong>
+  <% @user.attended_events.upcoming_events.each do |event| %>
+    <p><%= event.description %> <%= event.date %></p>
   <% end %>
 </p>

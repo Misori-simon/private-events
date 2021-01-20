@@ -34,13 +34,6 @@ class EventsController < ApplicationController
     end
   end
 
-  # def attendance_new
-  #   @attendance = Attendance.new
-  #   @attendance.attendee_id = session[:user_id]
-  #   @attendance.event_id = @event.id
-  #   @attending = true if @attendance.save
-  # end
-
   def signed_in?
     return true if session[:user_id] && session[:user_name]
 
