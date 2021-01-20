@@ -1,25 +1,29 @@
+<div class="col">
+  <div class="content margin8">
+    <p>
+      <strong>Description:</strong>
+      <span class="page_title"></span>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <span class="page_title"></span>
-</p>
+    <p>
+      <strong>Date:</strong>
+      <%= @event.date %>
+    </p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @event.date %>
-</p>
+    <p>
+      <strong>Creator:</strong>
+      <%= @event.creator_id %>
+    </p>
 
-<p>
-  <strong>Creator:</strong>
-  <%= @event.creator_id %>
-</p>
+    <p>
+      <strong>Attendees:</strong>
+      <% @event.attendees.each do |attendee| %>
+        <p><%= attendee.name %></p>
+      <% end %>
+    </p>
+  </div>
 
-<p>
-  <strong>Attendees:</strong>
-  <% @event.attendees.each do |attendee| %>
-    <p><%= attendee.name %></p>
-  <% end %>
-</p>
-
-<%= link_to 'Attend', :controller => 'attendance', :action => 'create', :event => @event%>
-<%= link_to 'Back', events_path, class: "links" %>
+  <div class="margin8 attend">
+    <%= link_to 'Attend', class: "links margin8", :controller => 'attendance', :action => 'create', :event => @event %>
+  </div>
+</div>

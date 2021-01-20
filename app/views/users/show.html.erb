@@ -1,37 +1,27 @@
 
-<p>
-  <strong>Name:</strong>
-  <span class="page_title"><%= @user.name%></span>
-</p>
+<div class="col">
+  <div class="content margin8">
+    <h2 class="margin8 row main-center"><%= @user.name%></h2>
 
-<p>
-  <strong class="heading">Events Created:</strong>
-  <% @user.events.each do |event| %>
-    <p><%= event.description %></p>
-  <% end %>
-</p>
+    <div class="col margin8">
+      <strong class="heading">Events Created:</strong>
+      <% @user.events.each do |event| %>
+        <%= render 'events/event', event: event %>
+      <% end %>
+    </div>
 
-<%
-=begin%>
- <p>
-  <strong>All Events Attended:</strong>
-  <% @user.attended_events.each do |event| %>
-    <p><%= event.description %></p>
-  <% end %>
-</p>
-<%
-=end%>
+    <div class="col margin8">
+      <strong class="heading">Previously attended Events:</strong>
+      <% @user.attended_events.past_events.each do |event| %>
+        <%= render 'events/event', event: event %>
+      <% end %>
+    </div>
 
-<p class="heading">
-  <strong>Previously attended Events:</strong>
-  <% @user.attended_events.past_events.each do |event| %>
-    <p><%= event.description %> <%= event.date %></p>
-  <% end %>
-</p>
-
-<p class="heading">
-  <strong>Upcoming Events to attend:</strong>
-  <% @user.attended_events.upcoming_events.each do |event| %>
-    <p><%= event.description %> <%= event.date %></p>
-  <% end %>
-</p>
+    <div class="col margin8">
+      <strong class="heading">Upcoming Events to attend:</strong>
+      <% @user.attended_events.upcoming_events.each do |event| %>
+        <%= render 'events/event', event: event %>
+      <% end %>
+    </div>
+  </div>
+</div>

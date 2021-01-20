@@ -14,11 +14,184 @@
  *= require_self
  */
 
+$all:('', 0, 4000px);
+$sm:('-sm', 0, 600px);
+$lg:('-lg', 601px, 4000px);
+
+$breakpoints: ($all, $sm, $lg);
+
+@mixin sm {
+  @media screen and (min-width: nth($sm, 2)) and (max-width: nth($sm, 3)) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media screen and (min-width: nth($lg, 2)) and (max-width: nth($lg, 3)) {
+    @content;
+  }
+}
+
+@each $breakpoint in $breakpoints {
+  $point: nth($breakpoint, 1);
+  $min: nth($breakpoint, 2);
+  $max: nth($breakpoint, 3);
+
+  @media screen and (min-width: $min) and (max-width: $max) {
+    .hide#{$point} {
+      display: none;
+    }
+
+    .col#{$point},
+    .col-reverse#{$point},
+    .row#{$point} {
+      display: flex;
+    }
+
+    .col#{$point} {
+      flex-direction: column;
+    }
+
+    .col-reverse#{$point} {
+      flex-direction: column-reverse;
+    }
+
+    .main-center#{$point} {
+      justify-content: center;
+    }
+
+    .main-start#{$point} {
+      justify-content: flex-start;
+    }
+
+    .main-end#{$point} {
+      justify-content: flex-end;
+    }
+
+    .main-space-between#{$point} {
+      justify-content: space-between;
+    }
+
+    .main-space-around#{$point} {
+      justify-content: space-around;
+    }
+
+    .cross-center#{$point} {
+      align-items: center;
+    }
+
+    .cross-start#{$point} {
+      align-items: flex-start;
+    }
+
+    .cross-end#{$point} {
+      align-items: flex-end;
+    }
+
+    .cross-baseline#{$point} {
+      align-items: baseline;
+    }
+
+    .flex#{$point} {
+      flex: 1 1;
+    }
+
+    .wrap#{$point} {
+      flex-wrap: wrap;
+    }
+
+    .h-100#{$point} {
+      height: 100%;
+    }
+
+    .shadow-15#{$point} {
+      box-shadow: 0 0 15px 0 rgb(100, 100, 100);
+    }
+
+    .padding8#{$point} {
+      padding: 8px;
+    }
+
+    .margin8#{$point} {
+      margin: 8px;
+    }
+
+    .layout-padding8#{$point} {
+      & > div,
+      & > b,
+      & > button,
+      & > a,
+      & > input {
+        padding: 8px;
+      }
+    }
+
+    .layout-padding4#{$point} {
+      & > div,
+      & > b,
+      & > button,
+      & > a,
+      & > input {
+        padding: 4px;
+      }
+    }
+
+    .layout-margin8#{$point} {
+      & > div,
+      & > b,
+      & > button,
+      & > a,
+      & > input {
+        margin: 8px;
+      }
+    }
+
+    .layout-margin4#{$point} {
+      & > div,
+      & > b,
+      & > button,
+      & > a,
+      & > input {
+        margin: 4px;
+      }
+    }
+
+    @for $i from 1 through 20 {
+      $width: percentage($i*5/100);
+
+      .w-#{$i*5}#{$point} {
+        width: $width;
+      }
+    }
+  }
+}
+
+ body {
+   max-width: 1000px;
+   margin: 0 auto;
+ }
+
+ .alert,
+ .notice {
+   margin: 0;
+   padding: 16px;
+ }
+
+ .alert {
+   background-color: pink;
+   color: red;
+ }
+
+ .notice {
+   background-color: lightgreen;
+   color: green;
+ }
+
  .nav {
    display: flex;
    justify-content: space-between;
    background-color:  #5b92e4;
-   padding: 10px 5px;
+   padding: 0 10px;
  }
 
 .nav_right {
@@ -28,7 +201,11 @@
 }
 
 .nav_item {
-  padding: 5px;
+  padding: 0 20px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 3px;
   color:#fff !important;
   font-weight: bold;
@@ -41,12 +218,16 @@
   color: #5b92e4;
 }
 
-.form {
+.content {
   border: 1px solid #5b92e4;
   display: inline-block;
   padding: 10px;
   border-radius: 3px;
   background-color: #eee;
+}
+
+.form {
+  @extend .content;
 
   label {
     font-weight: bold;
@@ -93,21 +274,20 @@
 
 
   input[type="submit"]{
-    font-weight: bold;
-    font-size: 14px;
-    margin-top: 10px;
-    color: #fff;
-    background-color: #5b92e4 ;
     outline: none;
     border: none;
-    padding: 5px;
-    border-radius: 3px;
+    cursor: pointer;
   }
 }
 
+input[type="submit"],
 .links{
   @extend .nav_item;
   background-color: #3583f8;
+}
+
+.attend a {
+  @extend .links;
 }
 
 .heading {

@@ -11,24 +11,26 @@
   </head>
 
   <body>
-    <p><%= notice %></p>
-    <p><%= alert %></p>
-    <nav class="nav">
-
-        <% if session[:user_id] %>
-         <div>
-            <%= link_to session[:user_name], user_path(session[:user_id]), class: "nav_item"%>
-            <%= link_to "Events", events_path, class: "nav_item"%>
-            <%= link_to "Log Out", session_destroy_path(1), method: :delete, class: "nav_item" %>
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+    <nav class="nav row">
+      <% if session[:user_id] %>
+        <div class="row">
+          <%= link_to "Home", root_path, class: "nav_item" %>
+          <%= link_to session[:user_name], user_path(session[:user_id]), class: "nav_item" %>
+          <%= link_to "Log Out", session_destroy_path(1), method: :delete, class: "nav_item" %>
+        </div>
+      <% else %>
+        <div class="row">
+          <%= link_to "Events", events_path, class: "nav_item" %>
+          <%= link_to 'Log In', session_new_path, class: "nav_item" %>
+          <%= link_to 'Sign Up', new_user_path, class: "nav_item" %>
           </div>
-        <% else %>
-          <div>
-            <%= link_to "Events", events_path, class: "nav_item"%>
-            <%= link_to 'Log In', session_new_path, class: "nav_item"%>
-            <%= link_to 'Sign Up', new_user_path, class: "nav_item"%>
-           </div>
-        <% end %>
-
+      <% end %>
     </nav>
     <%= yield %>
   </body>
