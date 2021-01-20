@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
+  get 'attendance/create'
   resources :events
   get 'session/new'
-  get 'attendance/new' => 'events#attendance_new'
   delete 'session/destroy'
   post 'session/log_in'
   resources :users

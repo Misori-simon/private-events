@@ -15,4 +15,12 @@
   <%= @event.creator_id %>
 </p>
 
+<p>
+  <strong>Attendees:</strong>
+  <% @event.attendees.each do |attendee| %>
+    <p><%= attendee.name %></p>
+  <% end %>
+</p>
+
+<%= link_to 'Attend', :controller => 'attendance', :action => 'create', :event => @event %>
 <%= link_to 'Back', events_path %>
