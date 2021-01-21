@@ -166,33 +166,33 @@ $breakpoints: ($all, $sm, $lg);
   }
 }
 
- body {
-   max-width: 1000px;
-   margin: 0 auto;
- }
+body {
+  max-width: 1000px;
+  margin: 0 auto;
+}
 
- .alert,
- .notice {
-   margin: 0;
-   padding: 16px;
- }
+.alert,
+.notice {
+  margin: 0;
+  padding: 16px;
+}
 
- .alert {
-   background-color: pink;
-   color: red;
- }
+.alert {
+  background-color: pink;
+  color: red;
+}
 
- .notice {
-   background-color: lightgreen;
-   color: green;
- }
+.notice {
+  background-color: lightgreen;
+  color: green;
+}
 
- .nav {
-   display: flex;
-   justify-content: space-between;
-   background-color:  #5b92e4;
-   padding: 0 10px;
- }
+.nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: #5b92e4;
+  padding: 0 10px;
+}
 
 .nav_right {
   display: flex;
@@ -207,7 +207,7 @@ $breakpoints: ($all, $sm, $lg);
   align-items: center;
   justify-content: center;
   border-radius: 3px;
-  color:#fff !important;
+  color: #fff !important;
   font-weight: bold;
   text-decoration: none;
 }
@@ -226,6 +226,13 @@ $breakpoints: ($all, $sm, $lg);
   background-color: #eee;
 }
 
+input[type="submit"],
+.links {
+  @extend .nav_item;
+
+  background-color: #3583f8;
+}
+
 .form {
   @extend .content;
 
@@ -240,8 +247,7 @@ $breakpoints: ($all, $sm, $lg);
   input[type="password"],
   input[type="date"],
   select,
-  textarea
-   {
+  textarea {
     padding: 3px;
     font-size: 18px;
     border-radius: 3px;
@@ -252,8 +258,7 @@ $breakpoints: ($all, $sm, $lg);
   }
 
   select,
-  textarea
-   {
+  textarea {
     padding: 3px;
     font-size: 16px;
     border-radius: 3px;
@@ -261,29 +266,20 @@ $breakpoints: ($all, $sm, $lg);
     border: none;
     border: 1px solid #5b92e4;
     background-color: #fff;
-
   }
 
-  textarea
-   {
+  textarea {
     width: 90%;
     height: 100px;
     padding: 10px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   }
 
-
-  input[type="submit"]{
+  input[type="submit"] {
     outline: none;
     border: none;
     cursor: pointer;
   }
-}
-
-input[type="submit"],
-.links{
-  @extend .nav_item;
-  background-color: #3583f8;
 }
 
 .invitation-item a,
@@ -300,7 +296,7 @@ input[type="submit"],
   font-size: 18px;
   font-weight: bold;
   margin: 10px 0;
-  color: #3583f8
+  color: #3583f8;
 }
 
 .text_green {
