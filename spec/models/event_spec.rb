@@ -26,4 +26,10 @@ RSpec.describe Event do
   it 'Checks validity of event3 without creator' do
     expect(Event.new(description: 'Night Show', date: Time.now).valid?).to be false
   end
+
+  it 'Checks if user who created event is creator of event' do
+    user = User.create(name: 'Tim')
+    event = user.events.create(description: '', date: Time.now)
+    expect(event.creator).to eql(user)
+  end
 end

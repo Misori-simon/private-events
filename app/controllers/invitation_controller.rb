@@ -5,7 +5,7 @@ class InvitationController < ApplicationController
     @invitation = Invitation.new
     @invitation.event_id = params[:event]
     @invitation.invitee_id = params[:user]
-    (@invitation.save)? flash.notice = "Invitation Sent Successfully" : flash.alert = "Invitation Not Sent"
+    @invitation.save ? flash.notice = 'Invitation Sent Successfully' : flash.alert = 'Invitation Not Sent'
     redirect_to event_path(params[:event])
   end
 
@@ -17,6 +17,7 @@ class InvitationController < ApplicationController
 
   def signed_in?
     return true if session[:user_id] && session[:user_name]
+
     redirect_to session_new_path
   end
 end

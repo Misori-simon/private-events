@@ -7,5 +7,5 @@ class User < ApplicationRecord
   has_many :invitation, foreign_key: :invitee_id
   has_many :invited_events, through: :invitation, source: :event
 
-  validates :name, presence: true, length: {minimum: 3, maximum: 30}
+  validates :name, presence: true, length: { minimum: 3, maximum: 30 }
 end

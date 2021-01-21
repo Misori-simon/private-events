@@ -6,7 +6,7 @@ class SessionController < ApplicationController
   def log_in
     result = User.where(name: params[:user][:name])
     if result.empty?
-      flash[:alert] = "User not found."
+      flash[:alert] = 'User not found.'
     else
       user = result.first
       session[:user_id] = user[:id]

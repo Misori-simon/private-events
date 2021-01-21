@@ -18,5 +18,4 @@ class AttendanceController < ApplicationController
 
     redirect_to session_new_path
   end
-
 end
