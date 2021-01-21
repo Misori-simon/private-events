@@ -5,11 +5,9 @@ class AttendanceController < ApplicationController
     @attendance = Attendance.new
     @attendance.attendee_id = session[:user_id]
     @attendance.event_id = params[:event]
-    if @attendance.save
-      redirect_to event_path(params[:event])
-    else
-      p @attendance.errors
-    end
+    (@attendance.save)? flash.notice = "Successfully Joined the Event" : flash.alert = "Unable To Join"
+    redirect_to event_path(params[:event])
+
   end
 
   def signed_in?
@@ -17,4 +15,5 @@ class AttendanceController < ApplicationController
 
     redirect_to session_new_path
   end
+
 end

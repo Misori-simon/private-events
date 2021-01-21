@@ -18,12 +18,34 @@
     <p>
       <strong>Attendees:</strong>
       <% @event.attendees.each do |attendee| %>
+        <% @attending = (attendee.id == session[:user_id]) %>
         <p><%= attendee.name %></p>
+      <% end %>
+    </p>
+
+    <p>
+      <strong>Invitees:</strong>
+      <% @event.invitees.each do |invitee| %>
+        <p><%= invitee.name %></p>
       <% end %>
     </p>
   </div>
 
-  <div class="margin8 attend">
-    <%= link_to 'Attend', class: "links margin8", :controller => 'attendance', :action => 'create', :event => @event %>
-  </div>
+  <% unless @attending %>
+    <div class="margin8 attend">
+      <%= link_to 'Attend', class: "links margin8", :controller => 'attendance', :action => 'create', :event => @event %>
+    </div>
+  <%end%>
+  <% if @event.creator_id == session[:user_id] %>
+    <div class="col content margin8 ">
+      <% @users.each do |user| %>
+        <%  unless (user.id == @event.creator_id || @event.attendees.include?(user) || @event.invitees.include?(user))%>
+          <div class="row margin8 invitation-item">
+            <div class="margin8 row cross-center w-25"> <%= user.name %> </div>
+            <%= link_to 'Invite', class: "links margin8", :controller => 'invitation', :action => 'create', :event => @event, :user => user %>
+          </div>
+        <%  end %>
+      <% end %>
+    </div>
+  <%end%>
 </div>
