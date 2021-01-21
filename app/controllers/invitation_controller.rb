@@ -7,10 +7,12 @@ class InvitationController < ApplicationController
     @invitation.invitee_id = params[:user]
     (@invitation.save)? flash.notice = "Invitation Sent Successfully" : flash.alert = "Invitation Not Sent"
     redirect_to event_path(params[:event])
-
   end
 
   def destroy
+    Invitation.destroy(params[:id])
+    flash.notice = 'Success!'
+    redirect_to event_path(params[:event])
   end
 
   def signed_in?

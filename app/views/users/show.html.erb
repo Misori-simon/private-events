@@ -5,23 +5,38 @@
 
     <div class="col margin8">
       <strong class="heading">Events Created:</strong>
-      <% @user.events.each do |event| %>
-        <%= render 'events/event', event: event %>
-      <% end %>
+      <div class="row wrap">
+        <% @user.events.each do |event| %>
+          <%= render 'events/event', event: event %>
+        <% end %>
+      </div>
     </div>
 
     <div class="col margin8">
-      <strong class="heading">Previously attended Events:</strong>
-      <% @user.attended_events.past_events.each do |event| %>
-        <%= render 'events/event', event: event %>
-      <% end %>
+      <strong class="heading">Events Invited:</strong>
+      <div class="row wrap">
+        <% @user.invited_events.each do |event| %>
+          <%= render 'events/event', event: event %>
+        <% end %>
+      </div>
     </div>
 
     <div class="col margin8">
       <strong class="heading">Upcoming Events to attend:</strong>
-      <% @user.attended_events.upcoming_events.each do |event| %>
-        <%= render 'events/event', event: event %>
-      <% end %>
+      <div class="row wrap">
+        <% @user.attended_events.upcoming_events.each do |event| %>
+          <%= render 'events/event', event: event %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col margin8">
+      <strong class="heading">Previously attended Events:</strong>
+      <div class="row wrap">
+        <% @user.attended_events.past_events.each do |event| %>
+          <%= render 'events/event', event: event %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

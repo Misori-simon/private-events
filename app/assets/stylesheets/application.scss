@@ -291,6 +291,10 @@ input[type="submit"],
   @extend .links;
 }
 
+.event {
+  width: 275px;
+}
+
 .heading {
   display: block;
   font-size: 18px;

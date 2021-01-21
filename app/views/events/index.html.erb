@@ -3,14 +3,18 @@
 
 <div class="col">
   <span class="heading">Past Events</span>
-  <% @events.past_events.each do |event| %>
-    <%= render 'event', event: event %>
-  <% end %>
+  <div class="row wrap">
+    <% @events.past_events.each do |event| %>
+      <%= render 'event', event: event %>
+    <% end %>
+  </div>
 
   <span class="heading">Upcoming Events</span>
-  <% @events.upcoming_events.each do |event| %>
-    <%= render 'event', event: event %>
-  <% end %>
+  <div class="row wrap">
+    <% @events.upcoming_events.each do |event| %>
+      <%= render 'event', event: event %>
+    <% end %>
+  </div>
 </div>
 
 <br>
