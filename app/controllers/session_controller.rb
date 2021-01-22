@@ -7,6 +7,7 @@ class SessionController < ApplicationController
     result = User.where(name: params[:user][:name])
     if result.empty?
       flash[:alert] = 'User not found.'
+      redirect_to session_new_path
     else
       user = result.first
       session[:user_id] = user[:id]

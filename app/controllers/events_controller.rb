@@ -24,14 +24,14 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.creator_id = session[:user_id]
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
-      else
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+
+    if @event.save
+      flash.notice = 'Event was successfully created.'
+      redirect_to @event
+    else
+      errors = @event.errors.map(&:full_message)
+      flash.alert = errors.join('<br/>').html_safe
+      render :new
     end
   end
 

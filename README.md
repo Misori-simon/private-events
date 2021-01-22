@@ -23,7 +23,9 @@ Basic concepts of Ruby on Rails have been used, including:
 - Clone the project repo from [GitHub](https://github.com/Misori-simon/private-events) using `git clone https://github.com/Misori-simon/private-events`
 - Make sure [Ruby-lang](https://www.ruby-lang.org/en/) is installed
 - Make sure [Bundler](https://bundler.io/) is installed
+- Navigate to the project directory like `cd private-events`
 - Install the required gems. Run `bundle install`
+- Install Javascript dependencies. Run `yarn install`
 - Install the locale database. Run `rake db:migrate`
 - If you have problems with the gem versions try installing [RVM](https://rvm.io/)
 - Launch a Rails Server using `rails server`
