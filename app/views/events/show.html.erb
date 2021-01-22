@@ -34,7 +34,11 @@
       <%= link_to 'Accept Invitation', :controller => 'attendance', :action => 'create', :event => @event, :invitation => @event.invitation.where(invitee_id: session[:user_id], event_id: @event.id).first %>
       <%= link_to 'Decline Invitation', :controller => 'invitation', :action => 'destroy', :event => @event, :id => @event.invitation.where(invitee_id: session[:user_id], event_id: @event.id).first %>
     </div>
-  <%end%>
+  <% elsif user_not_attending? %>
+    <div class="row layout-margin8 attend">
+      <%= link_to 'Attend', :controller => 'attendance', :action => 'create', :event => @event %>
+    </div>
+  <% end %>
 
   <% if show_more_to_invite? %>
     <div class="col content margin8 ">

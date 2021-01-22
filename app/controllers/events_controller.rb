@@ -5,7 +5,8 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @past_events = Event.past_events
+    @upcoming_events = Event.upcoming_events
   end
 
   # GET /events/1
@@ -22,8 +23,7 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(event_params)
-    @event.creator_id = session[:user_id]
+    @event = User.find(session[:user_id]).events.build(event_params)
 
     if @event.save
       flash.notice = 'Event was successfully created.'

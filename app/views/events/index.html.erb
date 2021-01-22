@@ -4,14 +4,14 @@
 <div class="col">
   <span class="heading">Past Events</span>
   <div class="row wrap">
-    <% @events.past_events.each do |event| %>
+    <% @past_events.each do |event| %>
       <%= render 'event', event: event %>
     <% end %>
   </div>
 
   <span class="heading">Upcoming Events</span>
   <div class="row wrap">
-    <% @events.upcoming_events.each do |event| %>
+    <% @upcoming_events.each do |event| %>
       <%= render 'event', event: event %>
     <% end %>
   </div>

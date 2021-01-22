@@ -6,7 +6,11 @@ class AttendanceController < ApplicationController
     @attendance.attendee_id = session[:user_id]
     @attendance.event_id = params[:event]
     if @attendance.save
-      redirect_to invitation_destroy_path(id: params[:invitation], event: params[:event])
+      if params[:invitation]
+        redirect_to invitation_destroy_path(id: params[:invitation], event: params[:event])
+      else
+        redirect_to event_path(params[:event])
+      end
     else
       flash.alert = 'Unable To Join'
       redirect_to event_path(params[:event])
