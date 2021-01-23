@@ -1,0 +1,42 @@
+
+<div class="col">
+  <div class="content margin8">
+    <h2 class="margin8 row main-center"><%= @user.name%></h2>
+
+    <div class="col margin8">
+      <strong class="heading">Events Created:</strong>
+      <div class="row wrap">
+        <% @created_events.each do |event| %>
+          <%= render 'events/event', event: event %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col margin8">
+      <strong class="heading">Events Invited:</strong>
+      <div class="row wrap">
+        <% @invited_events.each do |event| %>
+          <%= render 'events/event', event: event %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col margin8">
+      <strong class="heading">Upcoming Events to attend:</strong>
+      <div class="row wrap">
+        <% @upcoming_events.each do |event| %>
+          <%= render 'events/event', event: event %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col margin8">
+      <strong class="heading">Previously attended Events:</strong>
+      <div class="row wrap">
+        <% @past_events.each do |event| %>
+          <%= render 'events/event', event: event %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

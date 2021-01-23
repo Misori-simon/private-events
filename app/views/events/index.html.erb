@@ -1,0 +1,18 @@
+
+<h1 class="page_title">Events</h1>
+
+<div class="col">
+  <span class="heading">Past Events</span>
+  <div class="row wrap">
+    <% @past_events.each do |event| %>
+      <%= render 'event', event: event %>
+    <% end %>
+  </div>
+
+  <span class="heading">Upcoming Events</span>
+  <div class="row wrap">
+    <% @upcoming_events.each do |event| %>
+      <%= render 'event', event: event %>
+    <% end %>
+  </div>
+</div>

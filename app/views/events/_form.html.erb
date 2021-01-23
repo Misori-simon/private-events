@@ -1,0 +1,17 @@
+<div class="col margin8">
+  <%= form_with(model: event, class: "form") do |form| %>
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+    </div>
+
+    <div class="field">
+      <%= form.label :date %>
+      <%= form.datetime_select :date %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>

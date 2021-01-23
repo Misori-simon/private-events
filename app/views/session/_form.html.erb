@@ -1,0 +1,10 @@
+<%= form_for @user, :html => {:class => 'form'}, :url => { :action => "log_in" } do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, :required => true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Log In' %>
+  </div>
+<% end %>
